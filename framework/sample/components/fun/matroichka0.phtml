@@ -1,0 +1,34 @@
+<?php
+
+namespace Fun;
+
+function Matroichka0()
+{
+
+    return (<<< HTML
+    <Mother>
+        <Slot name="title">Ephect in action !</Slot>
+        <Slot name="stylesheets">
+            <link rel="stylesheet" href="/css/index.css" />
+            <link rel="stylesheet" href="/css/app.css" />
+        </Slot>
+        <div class="App-content" >
+            <label for="zero">Zero</label>
+            <ul id="zero">
+                <li>
+                    inside 0<br>
+                    <Matroichka1>
+                        inside 1<br>
+                        <Matroichka2>
+                            inside 2<br>
+                        </Matroichka2>
+                    </Matroichka1>
+                </li>
+            </ul>
+        </div>
+        <Slot name="javascripts">
+            <script src="js/ephect.js"></script>
+        </Slot>
+    </Mother>
+    HTML);
+}
