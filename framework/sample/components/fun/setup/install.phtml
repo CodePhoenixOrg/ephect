@@ -3,16 +3,23 @@
 namespace Ephect\Plugins\Setup;
 
 use function Ephect\Hooks\useEffect;
-use function Ephect\Hooks\useQueryArgument;
+use function Ephect\Hooks\useProps;
+use function Ephect\Hooks\useState;
 
 define('SERVER_ERROR', 'Something went wrong, please check the server setup');
 
-function ProcessSetup($children)
+function Install($props)
 {
 
-    useEffect(function () use (/* bool */ &$hasResponse, /* string */ &$response) {
+    [$action] = useProps($props, function($props, /* string */ $action) {
+        $action = $props->action;
 
-        $action = useQueryArgument('action');
+        return [$action];
+    });
+
+    useEffect(function () use (/* bool */ &$hasResponse, /* string */ &$response, /* string */ &$action) {
+
+        // $action = useQueryArgument('action');
         $setup = new SetupService;
 
         if ($action === 'rewrite') {
@@ -49,16 +56,15 @@ function ProcessSetup($children)
             );        
         }
 
-        $hasResponse = ($response !== '' );
+        $hasResponse = ($response !== '');
     });
 
     return (<<< HTML
     {? 
         if ({hasResponse}) {
             header('Content-Type: application/json');
-            return {response};
+            echo {response};
         }
     ?}
-    {{ children }}
     HTML);
 }
