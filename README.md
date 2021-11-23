@@ -2,13 +2,13 @@
 
 ## What is Ephect ?
 
-In short, it's a ReactJS-like PHP framework. It allows you to create views by declaring components just like ReactJS does *today* <sup>1</sup>.
+In short, it's a ReactJS-like PHP framework. It allows you to create views by declaring components just like ReactJS does.
 
 ## Requirements
 
 Ephect can pre-compile the site using a CLI tool : *egg*. This tool uses a thread-safe parallelism mechanism to compile pages that may contain the same components. The thread-safe feature ensures that there is no so called "*class* has already been declared" error. 
 
-It is not mandatory but recommended to enable this mechanism. Otherwise you can compile pages dynamically by calling your application in the browser.
+It is not mandatory but recommended to enable this feature. Otherwise you can compile pages dynamically by calling your application in the browser.
 
 ### PHP thread-safe
 
@@ -94,7 +94,5 @@ The Info route shows how to make the most simple component without hooks.
 ## Notes
 
 **Ephect framework** is in work in progress stage. This means that there's a lot to do. Breaking changes are yet to come.
-
-<sup>1</sup> by *today* it's meant that Ephect follows the ReactJS paradigm as it is in 2021. Future ReactJS changes may not be taken in account in **Ephect framework**.
 
 Happy coding again! :)
